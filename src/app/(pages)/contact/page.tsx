@@ -40,7 +40,7 @@ const ContactPage = () => {
       >
         <h1 className="text-4xl font-bold mb-2 text-purple-500">Contact Me</h1>
         <p className="text-gray-400 mb-10">
-          Have a question or want to work together? Fill out the form below and I'll get back to you soon.
+          Have a question or want to work together? Fill out the form below and I ll get back to you soon.
         </p>
       </motion.div>
 
@@ -87,7 +87,7 @@ const ContactPage = () => {
 
         {success && (
           <p className="text-green-400 font-medium pt-4 text-center">
-            ✅ Message sent successfully!
+             Message sent successfully!
           </p>
         )}
       </motion.form>
