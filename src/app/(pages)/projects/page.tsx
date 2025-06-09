@@ -4,18 +4,32 @@ import { FetchProject } from "@/sanity/lib/fetchproject";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Project {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+  technologies?: string[];
+  github?: string;
+  live?: string;
+}
+
 export default async function ProjectsPage() {
-  const projects = await FetchProject();
+  const projects: Project[] = await FetchProject();
 
   return (
     <div className="min-h-screen bg-[#000116] text-white px-6 py-30">
       <h1 className="text-4xl font-bold text-purple-500 mb-10 text-center">My Projects</h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {projects.map((proj: any) => (
+        {projects.map((proj: Project) => (
           <div key={proj._id} className="bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-purple-600 transition-all">
             <Image
-           src={proj.image?.asset?.url || "/fallback-image.jpg"}
+              src={proj.image?.asset?.url || "/fallback-image.jpg"}
               alt={proj.title}
               width={500}
               height={300}

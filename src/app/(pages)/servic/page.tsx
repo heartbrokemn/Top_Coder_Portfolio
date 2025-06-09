@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import { FetchWebService } from "@/sanity/lib/fetchwebservice";
 import { FetchGraphicService } from "@/sanity/lib/fetchgraphic";
 
+interface Service {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+  link?: string;
+}
+
 export default function ServicesPage() {
-  const [activeTab, setActiveTab] = useState("web");
-  const [services, setServices] = useState([]);
+  const [activeTab, setActiveTab] = useState<"web" | "graphic">("web");
+  const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,18 +65,18 @@ export default function ServicesPage() {
 
       {/* Services List */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {services.map((service: any) => (
+        {services.map((service: Service) => (
           <div
             key={service._id}
             className="bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-purple-600 transition-all"
           >
-        <Image
-  src={service.image?.asset?.url || "/fallback.jpg"}
-  alt={service.title}
-  width={500}
-  height={300}
-  className="rounded-xl w-full h-auto max-h-72 object-contain"
-/>
+            <Image
+              src={service.image?.asset?.url || "/fallback.jpg"}
+              alt={service.title}
+              width={500}
+              height={300}
+              className="rounded-xl w-full h-auto max-h-72 object-contain"
+            />
             <h2 className="text-xl font-bold mt-4">{service.title}</h2>
             <p className="text-gray-400 text-sm mt-2">{service.description}</p>
             {service.link && (

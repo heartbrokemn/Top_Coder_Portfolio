@@ -18,14 +18,14 @@ const HeroSection = () => {
           </h2>
 
           {/* Typewriter Effect */}
-          <div className="text-lg md:text-xl font-medium text-purple-300 mb-6">
+          <div className="text-lg md:text-sm  text-purple-300 mb-6">
             <TypewriterText />
           </div>
 
-          <p className="text-gray-400 text-sm  md:text-base max-w-xl mb-16">
-            I’m a passionate developer and designer who loves turning ideas into reality
-            through beautiful and functional websites. Whether it’s crafting clean code,
-            designing intuitive UIs, or solving complex problems — I’m always excited to take on a new challenge.
+          <p className="text-gray-400 text-sm  md:text-base max-w-xl ">
+            I am a passionate developer and designer who loves turning ideas into reality
+            through beautiful and functional websites. Whether its crafting clean code,
+            designing intuitive UIs, or solving complex problems — I am always excited to take on a new challenge.
           </p>
 
           {/* Technologies */}
